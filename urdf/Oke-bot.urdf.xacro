@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+	<xacro:property name="mass" value="5.0"/>
+  <xacro:property name="visual_mesh_file" value="file://$(urdf_test)/meshes/Oke-bot.dae"/>
+		<link name="okebot_base_link">
+			<!-- inertial(material, iner)-->
+	  	<inertial>
+	    	<mass value="${mass}"/>
+	    	<origin xyz="0 0 0"/>
+	      <inertia ixx="525.39" ixy="1.44" ixz="33.41" iyy="794.20" iyz="2.6" izz="691.23"/>
+	    </inertial>
+
+	    <visual>
+	    	<origin xyz="0 0 0" rpy="0 0 0"/>
+	      	<geometry>
+	        	<mesh filename="${visual_mesh_file}" scale="1 1 1"/>
+	      	</geometry>
+	    </visual>
+	      <!-- bottom plate -->
+	    <collision>
+	    	<origin xyz="0 0 -0.75" rpy="0 0 0"/>
+	      	<geometry>
+	          <box size="2.56 1.50 0.10"/>
+	        </geometry>
+      </collision>
+      <!-- top plate -->
+      <collision>
+        <origin xyz="0 0 0.60" rpy="0 0 0"/>
+        <geometry><box size="2.56 1.50 0.40"/></geometry>
+      </collision>
+      <!-- left / right sides -->
+      <collision>
+        <origin xyz="-0.20 0.70 -0.15" rpy="0 0 0"/>
+        <geometry><box size="2.20 0.10 1.10"/></geometry>
+      </collision>
+      <collision>
+        <origin xyz="-0.20 -0.70 -0.15" rpy="0 0 0"/>
+        <geometry><box size="2.20 0.10 1.10"/></geometry>
+      </collision>
+
+		</link>
+  </xacro:macro>
+</robot>
