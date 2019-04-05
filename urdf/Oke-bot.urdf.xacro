@@ -6,7 +6,9 @@
 	  	<inertial>
 	    	<mass value="${mass}"/>
 	    	<origin xyz="0 0 0"/>
-	      <inertia ixx="525.39" ixy="1.44" ixz="33.41" iyy="794.20" iyz="2.6" izz="691.23"/>
+	      <inertia ixx="3.257E+08" ixy="-3.966E+05" ixz="-6.829E+06"
+								 iyx = "-3.966E+05" iyy = "4.469E+08" iyz = "-1.401E+05"
+								 izx = "-6.829E+06" izy = "-1.401E+05" izz = "3.066E+08"/>
 	    </inertial>
 
 	    <visual>
@@ -17,26 +19,11 @@
 	    </visual>
 	      <!-- bottom plate -->
 	    <collision>
-	    	<origin xyz="0 0 -0.75" rpy="0 0 0"/>
+	    	<origin xyz="0 0 0" rpy="0 0 0"/>
 	      	<geometry>
-	          <box size="2.56 1.50 0.10"/>
+	          <cylinder length="0.17" radius="0.30"/>
 	        </geometry>
       </collision>
-      <!-- top plate -->
-      <collision>
-        <origin xyz="0 0 0.60" rpy="0 0 0"/>
-        <geometry><box size="2.56 1.50 0.40"/></geometry>
-      </collision>
-      <!-- left / right sides -->
-      <collision>
-        <origin xyz="-0.20 0.70 -0.15" rpy="0 0 0"/>
-        <geometry><box size="2.20 0.10 1.10"/></geometry>
-      </collision>
-      <collision>
-        <origin xyz="-0.20 -0.70 -0.15" rpy="0 0 0"/>
-        <geometry><box size="2.20 0.10 1.10"/></geometry>
-      </collision>
-
 		</link>
   </xacro:macro>
 </robot>
